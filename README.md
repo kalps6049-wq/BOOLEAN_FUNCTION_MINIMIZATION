@@ -14,10 +14,6 @@ Hardware – PCs, Cyclone II , USB flasher
 
 **Software – Quartus prime**
 
-**Theory**
-
-**Logic Diagram**
-
 **Procedure**
 
 1.	Type the program in Quartus software.
@@ -32,21 +28,58 @@ Hardware – PCs, Cyclone II , USB flasher
 
 
 **Program:**
+```
+module exp2 (q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
 
-/* Program to implement the given logic function and to verify its operations in quartus using Verilog programming. 
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+ //Write logic for JK flipflop using if else statement for four conditions
 
-Developed by: RegisterNumber:*/
+begin
+               if (j == 0 && k == 0)
+                    begin
+                    q <= q;
+                    qb <= qb;
+                    end 
+		else if (j != k)
+                    begin
+                    q <= j;
+                    qb <= k;
+                    end
+               else if (j == 1 && k == 1) 
+                    begin 
+                    q <= ~q; 
+                    qb <= ~qb; 
+                    end 
+            end
+end  
+
+```
 
 
-**RTL realization**
 
-**Output:**
+Developed by:Kalpana M 
+RegisterNumber:212225240064
 
-**RTL**
 
-**Timing Diagram**
+**RTL:**
+<img width="1920" height="1080" alt="Screenshot (81)" src="https://github.com/user-attachments/assets/831e0fbd-695b-4fe3-898f-525ed3511398" />
+
+
+
+**OUTPUT:**
+<img width="1920" height="1080" alt="Screenshot (82)" src="https://github.com/user-attachments/assets/b00d8e87-3a43-4efb-a18b-6a018344d2f7" />
 
 **Result:**
-
 Thus the given logic functions are implemented using and their operations are verified using Verilog programming.
 
